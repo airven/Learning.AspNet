@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>download Area Index</h2>
+    </div>
+    <div>
+        <h2>跳转到首页</h2>
+        @Html.ActionLink("访问首页", "Index", new { area = "" })
+        <h2>跳转到account-area</h2>
+        @Html.ActionLink("点击跳转", "Index", new { area = "Account" })
+    </div>
+    <div>
+        <h2>下载excel</h2>
+        @Html.ActionLink("点击下载", "DownLoad")
+    </div>
+</body>
+</html>

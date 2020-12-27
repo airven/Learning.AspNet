@@ -120,12 +120,12 @@ namespace Learning.AspNetMvc
         #endregion
 
         #region Constructors
-        public WaterHelper(Image image)
+        public WarterMarker(Image image)
         {
             LoadImage(image);
         }
 
-        public WaterHelper(string filename)
+        public WarterMarker(string filename)
         {
             LoadImage(Image.FromFile(filename));
         }

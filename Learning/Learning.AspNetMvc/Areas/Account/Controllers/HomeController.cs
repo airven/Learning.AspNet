@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Learning.AspNetMvc.Controllers
+namespace Learning.AspNetMvc.Areas.Account.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: Home
+        // GET: Account/Home
         public ActionResult Index()
         {
             return View();

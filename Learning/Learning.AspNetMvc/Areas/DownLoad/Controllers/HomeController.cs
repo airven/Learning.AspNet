@@ -3,55 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Mvc;
 
-namespace Learning.AspNet
+namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
 {
-    public partial class DownExcel : System.Web.UI.Page
+    public class HomeController : Controller
     {
-        protected void Page_Load(object sender, EventArgs e)
+        // GET: DownLoad/Home
+        public ActionResult Index()
         {
-            if(!IsPostBack)
-            {
-                Response.Write("这是一个测试");
-            }
+            return View();
+        }
+        public ActionResult DownLoad()
+        {
+            var fileconent = GetFileContent();
+            string fileName = string.Format("export{0}", DateTime.Now.ToString("yyyyMMddHHmmssff"));
+            //方法一
+            //Response.AppendHeader("Content-Disposition", "attachment;filename=" + fileName + ".xls");
+            //Response.Charset = "utf-8";
+            //Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
+            //Response.ContentType = "application/ms-excel";
+            //Response.Write(fileconent);
+            //Response.End();
+            //return null;
+
+            //方法二
+            var bytes = Encoding.GetEncoding("utf-8").GetBytes(fileconent);
+            return File(bytes, "application/ms-excel", "reflections" + DateTime.UtcNow.ToShortDateString() + ".xls");
         }
 
-        private IEnumerable<ProductFactory> GetDataList()
-        {
-            var factory = new ProductFactory();
-            var projectList = new List<Products>()
-            {
-                new Products{ProductName="prodct1",ProvinceName="beijing" },
-                new Products{ProductName="prodct2",ProvinceName="sandong" },
-                new Products{ProductName="prodct3",ProvinceName="shanghai" },
-                new Products{ProductName="prodct4",ProvinceName="kongkong" },
-                new Products{ProductName="prodct5",ProvinceName="suzhou" },
-            };
-            var packages = new Packages();
-            packages.PackageName = "jacktest";
-            packages.Products = projectList;
-            factory.StartDate = DateTime.Now;
-            factory.EndDate = DateTime.Now;
-            factory.Packages = new List<Packages> { packages };
-            factory.ChannelLinkId = 1;
-            factory.BDTel = "123456789";
-            factory.BDName = "lunfactory";
-            factory.AuditStatus = 1;
-
-            var factoryList = new List<ProductFactory> { factory, factory, factory, factory, factory };
-            return factoryList;
-        }
-
-        protected void btndownload_Click(object sender, EventArgs e)
+        private string GetFileContent()
         {
             var data = GetDataList();
-            string fileName = string.Format("export{0}", DateTime.Now.ToString("yyyyMMddHHmmssff"));
-            Response.AppendHeader("Content-Disposition", "attachment;filename=" + fileName + ".xls");
-            //Response.Charset = "gb2312";
-            Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
-            Response.ContentType = "application/ms-excel";
             StringBuilder sb = new StringBuilder();
             sb.Append("<table border='1'>");
             sb.Append("<tbody>");
@@ -120,12 +103,37 @@ namespace Learning.AspNet
                 }
             }
             sb.AppendFormat("</table>");
-            Response.Write(sb);
-            Response.End();
+            return sb.ToString();
+        }
+        private IEnumerable<ProductCollection> GetDataList()
+        {
+            var factory = new ProductCollection();
+            var projectList = new List<Products>()
+            {
+                new Products{ProductName="prodct1",ProvinceName="beijing" },
+                new Products{ProductName="prodct2",ProvinceName="sandong" },
+                new Products{ProductName="prodct3",ProvinceName="shanghai" },
+                new Products{ProductName="prodct4",ProvinceName="kongkong" },
+                new Products{ProductName="prodct5",ProvinceName="suzhou" },
+            };
+            var packages = new Packages();
+            packages.PackageName = "jacktest";
+            packages.Products = projectList;
+            factory.StartDate = DateTime.Now;
+            factory.EndDate = DateTime.Now;
+            factory.Packages = new List<Packages> { packages };
+            factory.ChannelLinkId = 1;
+            factory.BDTel = "123456789";
+            factory.BDName = "lunfactory";
+            factory.AuditStatus = 1;
+
+            var factoryList = new List<ProductCollection> { factory, factory, factory, factory, factory };
+            return factoryList;
         }
     }
 
-    class ProductFactory
+
+    class ProductCollection
     {
         public int ChannelLinkId { get; set; }
         public string ChannelLinkName { get; set; }
@@ -149,7 +157,7 @@ namespace Learning.AspNet
         public List<Products> Products { get; set; }
     }
 
-    public class Products
+    class Products
     {
         public string ProductName { get; set; }
         public string ProvinceName { get; set; }

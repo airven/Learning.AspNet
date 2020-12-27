@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,7 +40,8 @@ namespace Learning.AspNetMvc
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "Learning.AspNetMvc.Controllers" }
             );
         }
     }
@@ -62,7 +67,7 @@ namespace Learning.AspNetMvc
             var request = requestContext.HttpContext.Request;
             var server = requestContext.HttpContext.Server;
             var validRequestFile = requestContext.RouteData.Values["filename"].ToString();
-            const string invalidRequestFile = "hao123.jpg";
+            //const string invalidRequestFile = "hao123.jpg";
             var path1 = server.MapPath("~/img/");
 
             response.Clear();
@@ -87,7 +92,7 @@ namespace Learning.AspNetMvc
                 Graphics gr = Graphics.FromImage(img);
                 //Color color = Color.FromArgb(255, 255, 0, 0);
                 Font font = new Font("Tahoma", (float)40, FontStyle.Regular, GraphicsUnit.Pixel);
-                Color color = Color.FromArgb(20, Color.Silver);//241, 235, 105
+                Color color = Color.FromArgb(30, Color.Gray);//241, 235, 105
                 double tangent = (double)img.Height / (double)img.Width;
                 double angle = Math.Atan(tangent) * (180 / Math.PI);
                 double halfHypotenuse = Math.Sqrt((img.Height * img.Height) + (img.Width * img.Width)) / 2;
@@ -96,7 +101,7 @@ namespace Learning.AspNetMvc
                 for (int i = 100; i > 0; i--)
                 {
                     font = new Font("Tahoma", i, FontStyle.Bold);
-                    SizeF sizef = gr.MeasureString("南海子数字博物馆", font, int.MaxValue);
+                    SizeF sizef = gr.MeasureString("欢迎光临", font, int.MaxValue);
 
                     sin = Math.Sin(angle * (Math.PI / 180));
                     cos = Math.Cos(angle * (Math.PI / 180));
@@ -114,7 +119,7 @@ namespace Learning.AspNetMvc
 
                 gr.SmoothingMode = SmoothingMode.AntiAlias;
                 gr.RotateTransform((float)angle);
-                gr.DrawString("南海子数字博物馆", font, new SolidBrush(color), new Point((int)halfHypotenuse, 0), stringFormat);
+                gr.DrawString("欢迎光临", font, new SolidBrush(color), new Point((int)halfHypotenuse, 0), stringFormat);
                 try
                 {
                     img.Save(response.OutputStream, ImageFormat.Jpeg);
