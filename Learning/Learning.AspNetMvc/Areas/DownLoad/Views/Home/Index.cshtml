@@ -21,5 +21,12 @@
         <h2>下载excel</h2>
         @Html.ActionLink("点击下载", "DownLoad")
     </div>
+    <div>
+        <h2>文档下载加水印</h2>
+        @foreach (var item in ViewBag.Files)
+        {
+            <a href="/DownLoad/Home/DownLoad?url=@item">@Path.GetFileName(item)</a><br />
+        }
+    </div>
 </body>
 </html>

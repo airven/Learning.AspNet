@@ -1,0 +1,2441 @@
+<?xml version="1.0"?>
+<doc>
+  <assembly>
+    <name>Aspose.Note</name>
+  </assembly>
+  <members>
+    <member name="T:Aspose.Note.DocumentVisitor">
+      <summary>
+            The abstract class for walking through all child nodes of node use the visitor design pattern.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitDocumentStart(Aspose.Note.Document)">
+      <summary>
+            Start to visit the Document node.
+            </summary>
+      <param name="document">The Document node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitDocumentEnd(Aspose.Note.Document)">
+      <summary>
+            End to visit the Document node.
+            </summary>
+      <param name="document">The Document node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitImageStart(Aspose.Note.Image)">
+      <summary>
+            Start to visit the Image node.
+            </summary>
+      <param name="image">The Image node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitImageEnd(Aspose.Note.Image)">
+      <summary>
+            End to visit the Image node.
+            </summary>
+      <param name="image">The Image node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineStart(Aspose.Note.Outline)">
+      <summary>
+            Start to visit the Outline node.
+            </summary>
+      <param name="outline">The Outline node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineEnd(Aspose.Note.Outline)">
+      <summary>
+            End to visit the Outline node.
+            </summary>
+      <param name="outline">The Outline node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineElementStart(Aspose.Note.OutlineElement)">
+      <summary>
+            Start to visit the OutlineGroup node.
+            </summary>
+      <param name="outlineElement">The OutlineElement node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineElementEnd(Aspose.Note.OutlineElement)">
+      <summary>
+            End to visit the OutlineGroup node.
+            </summary>
+      <param name="outlineElement">The OutlineElement node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineGroupStart(Aspose.Note.OutlineGroup)">
+      <summary>
+            Start to visit the OutlineGroup node.
+            </summary>
+      <param name="outlineGroup">The OutlineGroup node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitOutlineGroupEnd(Aspose.Note.OutlineGroup)">
+      <summary>
+            End to visit the OutlineGroup node.
+            </summary>
+      <param name="outlineGroup">The OutlineGroup node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitPageStart(Aspose.Note.Page)">
+      <summary>
+            Start to visit the page node.
+            </summary>
+      <param name="page">The Page node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitPageEnd(Aspose.Note.Page)">
+      <summary>
+            End to visit the page node.
+            </summary>
+      <param name="page">The page node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitPageSeriesStart(Aspose.Note.PageSeries)">
+      <summary>
+            Start to visit the PageSeries node.
+            </summary>
+      <param name="pageSeries">The PageSeries node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitPageSeriesEnd(Aspose.Note.PageSeries)">
+      <summary>
+            End to visit the PageSeries node.
+            </summary>
+      <param name="pageSeries">The PageSeries node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitRichTextStart(Aspose.Note.RichText)">
+      <summary>
+            Start to visit the RichText node.
+            </summary>
+      <param name="richText">The RichText node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitRichTextEnd(Aspose.Note.RichText)">
+      <summary>
+            End to visit the RichText node.
+            </summary>
+      <param name="richText">The RichText node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitSectionStart(Aspose.Note.Section)">
+      <summary>
+            Start to visit the Section node.
+            </summary>
+      <param name="section">The Section node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitSectionEnd(Aspose.Note.Section)">
+      <summary>
+            End to visit the Section node.
+            </summary>
+      <param name="section">The Section node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTitleStart(Aspose.Note.Title)">
+      <summary>
+            Start to visit the title node.
+            </summary>
+      <param name="title">The Title node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTitleEnd(Aspose.Note.Title)">
+      <summary>
+            End to visit the title node.
+            </summary>
+      <param name="title">The Title node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitAttachedFileStart(Aspose.Note.AttachedFile)">
+      <summary>
+            Start to visit the title node.
+            </summary>
+      <param name="attachedFile">The Title node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitAttachedFileEnd(Aspose.Note.AttachedFile)">
+      <summary>
+            End to visit the title node.
+            </summary>
+      <param name="attachedFile">The Title node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableStart(Aspose.Note.Table)">
+      <summary>
+            Start to visit the table node.
+            </summary>
+      <param name="table">The table node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableEnd(Aspose.Note.Table)">
+      <summary>
+            End to visit the table node.
+            </summary>
+      <param name="table">The table node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableCellStart(Aspose.Note.TableCell)">
+      <summary>
+            Start to visit the table cell node.
+            </summary>
+      <param name="tableCell">The table cell node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableCellEnd(Aspose.Note.TableCell)">
+      <summary>
+            End to visit the table cell node.
+            </summary>
+      <param name="tableCell">The table cell node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableRowStart(Aspose.Note.TableRow)">
+      <summary>
+            Start to visit the table row node.
+            </summary>
+      <param name="tableRow">The table row node.</param>
+    </member>
+    <member name="M:Aspose.Note.DocumentVisitor.VisitTableRowEnd(Aspose.Note.TableRow)">
+      <summary>
+            End to visit the table row node.
+            </summary>
+      <param name="tableRow">The table row node.</param>
+    </member>
+    <member name="T:Aspose.Note.AssemblyConstants">
+      <summary>
+            Represents the general information about assembly.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AssemblyConstants.ReleaseDate">
+      <summary>
+            Gets the release date.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AssemblyConstants.Product">
+      <summary>
+            Gets the product.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AssemblyConstants.Platform">
+      <summary>
+            Gets the platform.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AssemblyConstants.Family">
+      <summary>
+            Gets the family.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.License">
+      <summary>
+            Provides methods to license the component.
+            </summary>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As license = New license
+            License.SetLicense("MyLicense.lic")
+            </code></example>
+    </member>
+    <member name="M:Aspose.Note.License.#ctor">
+      <summary>
+            Initializes a new instance of this class.
+            </summary>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As license = New license
+            License.SetLicense("MyLicense.lic")
+            </code></example>
+    </member>
+    <member name="M:Aspose.Note.License.SetLicense(System.String)">
+      <summary>
+            Licenses the component.
+            </summary>
+      <remarks>
+        <p>Tries to find the license in the following locations:</p>
+        <p>1. Explicit path.</p>
+        <p>2. The folder that contains the Aspose component assembly.</p>
+        <p>3. The folder that contains the client's calling assembly.</p>
+        <p>4. The folder that contains the entry (startup) assembly.</p>
+        <p>5. An embedded resource in the client's calling assembly.</p>
+        <p>
+          <b>Note:</b>On the .NET Compact Framework, tries to find the license only in these locations:</p>
+        <p>1. Explicit path.</p>
+        <p>2. An embedded resource in the client's calling assembly.</p>
+      </remarks>
+      <example>
+            In this example, an attempt will be made to find a license file named MyLicense.lic
+            in the folder that contains 
+            
+            
+            the component, in the folder that contains the calling assembly,
+            in the folder of the entry assembly and then in the embedded resources of the calling assembly.
+            <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense("MyLicense.lic");
+            
+            
+            [Visual Basic]
+            
+            Dim license As License = New License
+            license.SetLicense("MyLicense.lic")
+            </code><param name="licenseName">Can be a full or short file name or name of an embedded resource.
+            Use an empty string to switch to evaluation mode.</param></example>
+    </member>
+    <member name="M:Aspose.Note.License.SetLicense(System.IO.Stream)">
+      <summary>
+            Licenses the component.
+            </summary>
+      <param name="stream">A stream that contains the license.</param>
+      <remarks>
+        <p>Use this method to load a license from a stream.</p>
+      </remarks>
+      <example>
+        <code>
+            [C#]
+            
+            License license = new License();
+            license.SetLicense(myStream);
+            
+            
+            [Visual Basic]
+            
+            Dim license as License = new License
+            license.SetLicense(myStream)
+            </code>
+      </example>
+    </member>
+    <member name="T:Aspose.Note.AttachedFile">
+      <summary>
+            Represents an attached file. 
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Node">
+      <summary>
+            Base class for all nodes of a note document.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Node.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Node.Document">
+      <summary>
+            Gets the document of node.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Node.IsComposite">
+      <summary>
+            Checks is node composite. If true the node can have child nodes.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Node.NodeType">
+      <summary>
+            Gets the node type.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Node.ParentNode">
+      <summary>
+            Gets the parent node.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Node.PreviousSibling">
+      <summary>
+            Gets the previous node at the same node tree level.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Node.NextSibling">
+      <summary>
+            Gets the next node at the same node tree level.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.AttachedFile.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.AttachedFile" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.AttachedFile.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the element.
+            </summary>
+      <param name="visitor">The visitor value.</param>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.LastModifiedTime">
+      <summary>
+            Gets or sets when the image was last changed.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.MaxWidth">
+      <summary>
+            Gets or sets the max width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.MaxHeight">
+      <summary>
+            Gets or sets the max height.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.IsSizeSetByUser">
+      <summary>
+            Gets or sets whether the value of the size of the icon was explicitly updated by the user.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Text">
+      <summary>
+            Gets or sets the text.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Alignment">
+      <summary>
+            Gets or sets the aligment.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.FileName">
+      <summary>
+            Gets or sets a file name.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.FilePath">
+      <summary>
+            Gets or sets a file path.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Width">
+      <summary>
+            Gets or sets a width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Height">
+      <summary>
+            Gets or sets a height.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.HorizontalOffset">
+      <summary>
+            Gets or sets the horizontal offset..
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.VerticalOffset">
+      <summary>
+            Gets or sets the vertical offset.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Icon">
+      <summary>
+            Gets or sets the icon.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.Bytes">
+      <summary>
+            Gets or sets the image data store.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.AttachedFile.IsPrintout">
+      <summary>
+            Gets or sets whether the view of the file is printout.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.CompositeNode">
+      <summary>
+            Base class for nodes that can contain other nodes. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.CompositeNode.AppendChild(Aspose.Note.Node)">
+      <summary>
+            Adds the node to the end of the list of child nodes for this node. 
+            </summary>
+      <param name="newChild">The node to add.</param>
+      <returns>The added node.</returns>
+    </member>
+    <member name="M:Aspose.Note.CompositeNode.RemoveChild(Aspose.Note.Node)">
+      <summary>
+            Removes the child node. 
+            </summary>
+      <param name="oldChild">The node to remove.</param>
+      <returns>The removed node.</returns>
+    </member>
+    <member name="M:Aspose.Note.CompositeNode.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="M:Aspose.Note.CompositeNode.GetChildNodes(Aspose.Note.NodeType)">
+      <summary>
+            Get all child nodes by node type.
+            </summary>
+      <param name="type">The node type.</param>
+      <returns>The list of child nodes.</returns>
+    </member>
+    <member name="M:Aspose.Note.CompositeNode.GetText">
+      <summary>
+            Get all text fron node.
+            </summary>
+      <returns>The text.</returns>
+    </member>
+    <member name="P:Aspose.Note.CompositeNode.IsComposite">
+      <summary>
+            Checks is node composite. If true the node can have child nodes.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.CompositeNode.FirstChild">
+      <summary>
+            Gets the first child node of a node.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.CompositeNode.LastChild">
+      <summary>
+            Gets the last child node of a node;
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.CompositeNode.Children">
+      <summary>
+            Gets the all child nodes of this node.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.NoteTag">
+      <summary>
+            Specifies the note tag.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.NoteTagCore">
+      <summary>
+            Specifies the base class for tag and task tag.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTagCore.CreationTime">
+      <summary>
+            Gets or sets the creation time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTagCore.CompletedTime">
+      <summary>
+            Gets or sets the completed time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTagCore.Status">
+      <summary>
+            Gets or sets the status.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTagCore.Icon">
+      <summary>
+            Gets or sets the icon.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTag.Label">
+      <summary>
+            Gets or sets the label.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTag.FontColor">
+      <summary>
+            Gets or Sets the font color.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTag.Highlight">
+      <summary>
+            Gets or Sets the highlight color.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.NoteTask">
+      <summary>
+            Specifies the note task.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTask.TaskType">
+      <summary>
+            Gets or sets the task type.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NoteTask.DueDate">
+      <summary>
+            Gets or sets the due date.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.HorizontalAlignment">
+      <summary>
+            Specifies the aligment.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.HorizontalAlignment.Left">
+      <summary>
+            Text is aligned to the left.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.HorizontalAlignment.Center">
+      <summary>
+            Text is centered.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.HorizontalAlignment.Right">
+      <summary>
+            Text is aligned to the right.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.NodeType">
+      <summary>
+            Specifies the node type.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Document">
+      <summary>
+            Specifies that the node is a Document.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Section">
+      <summary>
+            Specifies that the node is a Section.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Page">
+      <summary>
+            Specifies that the node is a Page.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.PageSeries">
+      <summary>
+            Specifies that the node is a PageSeries.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Title">
+      <summary>
+            Specifies that the node is a Title.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Outline">
+      <summary>
+            Specifies that the node is a Outline.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.OutlineElement">
+      <summary>
+            Specifies that the node is a OutlineElement.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Image">
+      <summary>
+            Specifies that the node is a Image.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.RichText">
+      <summary>
+            Specifies that the node is a RichText.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.OutlineGroup">
+      <summary>
+            Specifies that the node is a OutlineGroup.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.AttachedFile">
+      <summary>
+            Specifies that the node is a AttachedFile.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.Table">
+      <summary>
+            Specifies that the node is a table.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.TableRow">
+      <summary>
+            Specifies that the node is a table row.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.NodeType.TableCell">
+      <summary>
+            Specifies that the node is a table cell.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Model.Dictionary.NumberFormat">
+      <summary>
+            Specifies the numberring list type.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.Model.Dictionary.NumberFormat.DecimalNumbers">
+      <summary>
+            Specifies that the sequence shall consist of decimal numbering. [Example: 1, 2, 3, … , 9, 10, 11. end example]
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.PageSizeType">
+      <summary>
+            Specifies the page node type.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.SizeByContent">
+      <summary>
+            The page does not have a fixed size. It resizes automatically to fit all of the content within it.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.USStatement">
+      <summary>
+            U.S. statement (5.5" x 8.5"). 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ANSILette">
+      <summary>
+            ANSI letter (8.5" x 11").
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ANSITabloid">
+      <summary>
+            ANSI tabloid (11" x 17")
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.USLegal">
+      <summary>
+            U.S. legal (8.5" x 14").
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ISOA3">
+      <summary>
+            ISO A3 (297mm x 420mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ISOA4">
+      <summary>
+            ISO A4 (210mm x 297mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ISOA5">
+      <summary>
+            ISO A5 (148mm x 210mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.ISOA6">
+      <summary>
+            ISO A6 (105mm x 148mm).
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.JISB4">
+      <summary>
+            JIS B4 (257mm x 364mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.JISB5">
+      <summary>
+            JIS B5 (182mm x 257mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.JISB6">
+      <summary>
+            JIS B6 (128mm x 182mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.JapanesePostcard">
+      <summary>
+            Japanese postcard (100mm x 148mm)
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.IndexCard">
+      <summary>
+            Index card (3" x 5")
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.Billfold">
+      <summary>
+            Billfold (3.75" x 6.75")
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.PageSizeType.Custom">
+      <summary>
+            Custom size
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TagIcon">
+      <summary>
+            Specifies the icon of tag or task.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.NoIcon">
+      <summary>
+            No icon.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox">
+      <summary>
+            Green check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox">
+      <summary>
+            Yellow check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox">
+      <summary>
+            Blue check box. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenStarCheckBox">
+      <summary>
+            Green-star check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowStarCheckBox">
+      <summary>
+            Yellow-star check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueStarCheckBox">
+      <summary>
+            Blue-star check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenExclamationCheckBox">
+      <summary>
+            Green-exclamation check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowExclamationCheckBox">
+      <summary>
+            Yellow-exclamation check box. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueExclamationCheckBox">
+      <summary>
+            Blue-exclamation check box. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenRightArrowCheckBox">
+      <summary>
+            Green, right-arrow check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowRightArrowCheckBox">
+      <summary>
+            Yellow, right-arrow check box. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueRightArrowCheckBox">
+      <summary>
+            Blue, right-arrow check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowStar">
+      <summary>
+            Yellow star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueFollowUpFlag">
+      <summary>
+            Blue follow-up flag. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.QuestionMark">
+      <summary>
+            Question mark.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueRightArrow">
+      <summary>
+            Blue right arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.HighPriority">
+      <summary>
+            High priority (red exclamation mark). 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.ContactInformation">
+      <summary>
+            Contact information.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Meeting">
+      <summary>
+            Meeting (calendar).
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.TimeSensitive">
+      <summary>
+            Time-sensitive.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.LightBulb">
+      <summary>
+            Light bulb.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Pushpin">
+      <summary>
+            Pushpin. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Home">
+      <summary>
+            Home.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.CommentBubble">
+      <summary>
+            Comment bubble. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.SmilingFace">
+      <summary>
+            Smiling face.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.AwardRibbon">
+      <summary>
+            Award ribbon.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowKey">
+      <summary>
+            Yellow key.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox1">
+      <summary>
+            Blue check box 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCircle1">
+      <summary>
+            Blue circle 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox2">
+      <summary>
+            Blue check box 2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCircle2">
+      <summary>
+            Blue circle 2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox3">
+      <summary>
+            Blue check box 3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCircle3">
+      <summary>
+            Blue circle 3. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueEightPointStar">
+      <summary>
+            Blue, eight-point star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckMark">
+      <summary>
+            Blue check mark.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCircle">
+      <summary>
+            Blue circle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueDownArrow">
+      <summary>
+            Blue down arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueLeftArrow">
+      <summary>
+            Blue left arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueSolidTarget">
+      <summary>
+            Blue solid target.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueStar">
+      <summary>
+            Blue star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueSun">
+      <summary>
+            Blue sun.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueTarget">
+      <summary>
+            Blue target.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueTriangle">
+      <summary>
+            Blue triangle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueUmbrella">
+      <summary>
+            Blue umbrella.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueUpArrow">
+      <summary>
+            Blue up arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueXWithDots">
+      <summary>
+            Blue "X" with dots.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueXNo">
+      <summary>
+            Blue "X".
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox1">
+      <summary>
+            Green check box 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCircle1">
+      <summary>
+            Green circle 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox2">
+      <summary>
+            Green check box 2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCircle2">
+      <summary>
+            Green circle 2. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox3">
+      <summary>
+            Green check box 3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCircle3">
+      <summary>
+            Green circle 3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenEightPointStar">
+      <summary>
+            Green, eight-point star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckMark">
+      <summary>
+            Green check mark.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCircle">
+      <summary>
+            Green circle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenDownArrow">
+      <summary>
+            Green down arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenLeftArrow">
+      <summary>
+            Green left arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenRightArrow">
+      <summary>
+            Green right arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenSolidArrow">
+      <summary>
+            Green solid arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenStar">
+      <summary>
+            Green star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenSun">
+      <summary>
+            Green sun.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenTarget">
+      <summary>
+            Green target.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenTriangle">
+      <summary>
+            Green triangle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenUmbrella">
+      <summary>
+            Green umbrella.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenUpArrow">
+      <summary>
+            Green up arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenXWithDots">
+      <summary>
+            Green "X" with dots.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenXNo">
+      <summary>
+            Green "X".
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox1">
+      <summary>
+            Yellow check box 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCircle1">
+      <summary>
+            Yellow circle 1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox2">
+      <summary>
+            Yellow check box 2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCircle2">
+      <summary>
+            Yellow circle 2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox3">
+      <summary>
+            Yellow check box 3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCircle3">
+      <summary>
+            Yellow circle 3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowEightPointStar">
+      <summary>
+            Yellow, eight-point star.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckMark">
+      <summary>
+            Yellow check mark.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCircle">
+      <summary>
+            Yellow circle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowDownArrow">
+      <summary>
+            Yellow down arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowLeftArrow">
+      <summary>
+            Yellow left arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowRightArrow">
+      <summary>
+            Yellow right arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowSolidTarget">
+      <summary>
+            Yellow solid target.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowSun">
+      <summary>
+            Yellow sun.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowTarget">
+      <summary>
+            Yellow target.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowTriangle">
+      <summary>
+            Yellow triangle.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowUmbrella">
+      <summary>
+            Yellow umbrella.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowUpArrow">
+      <summary>
+            Yellow up arrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowXWithDots">
+      <summary>
+            Yellow "X" with dots.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowX">
+      <summary>
+            Yellow "X".
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.FollowUpTodayFlag">
+      <summary>
+            Follow up today flag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.FollowUpTomorrowFlag">
+      <summary>
+            Follow up tomorrow flag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.FollowUpThisWeekFlag">
+      <summary>
+            Follow up this week flag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.FollowUpNextWeekFlag">
+      <summary>
+            Follow up next week flag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.NoFollowUpDateFlag">
+      <summary>
+            No follow-up date flag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BluePersonCheckBox">
+      <summary>
+            Blue person check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowPersonCheckBox">
+      <summary>
+            Yellow person check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenPersonCheckBox">
+      <summary>
+            Green person check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueFlagCheckBox">
+      <summary>
+            Blue flag check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.RedFlagCheckBox">
+      <summary>
+            Red flag check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenFlagCheckBox">
+      <summary>
+            Green flag check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.RedSquare">
+      <summary>
+            Red square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowSquare">
+      <summary>
+            Yellow square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueSquare">
+      <summary>
+            Blue square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenSquare">
+      <summary>
+            Green square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.OrangeSquare">
+      <summary>
+            Orange square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.PinkSquare">
+      <summary>
+            Pink square.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.EMailMessage">
+      <summary>
+            E-mail message.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.ClosedEnvelope">
+      <summary>
+            Closed envelope.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.OpenEnvelope">
+      <summary>
+            Open envelope. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.MobilePhone">
+      <summary>
+            Mobile phone.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.TelephoneWithClock">
+      <summary>
+            Telephone with clock.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.QuestionBalloon">
+      <summary>
+            Question balloon. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.PaperClip">
+      <summary>
+            Paper clip.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.FrowningFace">
+      <summary>
+            Frowning face.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.InstantMessagingContactPerson">
+      <summary>
+            Instant messaging (IM) contact person.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.PersonWithExclamationMark">
+      <summary>
+            Person with exclamation mark. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.TwoPeople">
+      <summary>
+            Two people.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.ReminderBell">
+      <summary>
+            Reminder bell. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.ContactPersonOnCard">
+      <summary>
+            Contact (person on a card).
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.RoseOnStem">
+      <summary>
+            Rose on a stem.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.CalendarDateWithClock">
+      <summary>
+            Calendar date with clock.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.MusicalNote">
+      <summary>
+            Musical note.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.MovieClip">
+      <summary>
+            Movie clip.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.QuotationMark">
+      <summary>
+            Quotation mark.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Globe">
+      <summary>
+            Globe.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.HyperlinkGlobe">
+      <summary>
+            Hyperlink globe.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Laptop">
+      <summary>
+            Laptop.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Plane">
+      <summary>
+            Plane.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Car">
+      <summary>
+            Car.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Binoculars">
+      <summary>
+            Binoculars.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.PresentationSlide">
+      <summary>
+            Presentation slide.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Padlock">
+      <summary>
+            Padlock.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.OpenBook">
+      <summary>
+            Open book.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.NotebookWithClock">
+      <summary>
+            Notebook with clock.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlankPaperWithLines">
+      <summary>
+            Blank paper with lines. 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Research">
+      <summary>
+            Research (books with a magnifying glass).
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Pen">
+      <summary>
+            Pen.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.DollarSign">
+      <summary>
+            Dollar sign ($).
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.CoinsWithWindowBackdrop">
+      <summary>
+            Coins with a window backdrop.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.ScheduledTask">
+      <summary>
+            Scheduled task (form with a clock). 
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.LightningBolt">
+      <summary>
+            Lightning bolt.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Cloud">
+      <summary>
+            Cloud.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Heart">
+      <summary>
+            Heart.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.Sunflower">
+      <summary>
+            Sunflower.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox1Empty">
+      <summary>
+            Blue empty check box1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox2Empty">
+      <summary>
+            Blue empty check box2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBox3Empty">
+      <summary>
+            Blue empty check box3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueCheckBoxEmpty">
+      <summary>
+            Blue empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueExclamationCheckBoxEmpty">
+      <summary>
+            Blue exclamation check box empty.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueFlagCheckBoxEmpty">
+      <summary>
+            Blue flag check box empty.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BluePersonCheckBoxEmpty">
+      <summary>
+            Blue person check box empty.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueRightArrowCheckBoxEmpty">
+      <summary>
+            Blue right arrow check box empty.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.BlueStarCheckBoxEmpty">
+      <summary>
+            Blue star check box empty.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox1Empty">
+      <summary>
+            Green empty check box1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox2Empty">
+      <summary>
+            Green empty check box2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBox3Empty">
+      <summary>
+            Green empty check box3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenCheckBoxEmpty">
+      <summary>
+            Green empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenExclamationCheckBoxEmpty">
+      <summary>
+            Green exclamation empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenFlagCheckBoxEmpty">
+      <summary>
+            Green flag empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenPersonCheckBoxEmpty">
+      <summary>
+            Green person empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenRightArrowCheckBoxEmpty">
+      <summary>
+            Green right empty arrow check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.GreenStarCheckBoxEmpty">
+      <summary>
+            Green star empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.RedFlagCheckBoxEmpty">
+      <summary>
+            Red empty flag check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox1Empty">
+      <summary>
+            Yellow empty check box1.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox2Empty">
+      <summary>
+            Yellow empty check box2.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBox3Empty">
+      <summary>
+            Yellow empty check box3.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowCheckBoxEmpty">
+      <summary>
+            Yellow empty check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowExclamationCheckBoxEmpty">
+      <summary>
+            Yellow empty exclamation check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowPersonCheckBoxEmpty">
+      <summary>
+            Yellow empty person check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowRightArrowCheckBoxEmpty">
+      <summary>
+            Yellow empty right arrow check box.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagIcon.YellowStarCheckBoxEmpty">
+      <summary>
+            Yellow empty star check box.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TagStatus">
+      <summary>
+            Specifies the status of tag.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagStatus.Open">
+      <summary>
+            It specifies whether a checkable note tag is open.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagStatus.Completed">
+      <summary>
+            It specifies whether a checkable note tag is finished.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TagStatus.Disabled">
+      <summary>
+            It specifies whether the note tag is disabled.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TaskType">
+      <summary>
+            Specifies the type of task.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.DueToday">
+      <summary>
+            Due today.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.DueTomorrow">
+      <summary>
+            Due tomorrow.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.DueThisWeek">
+      <summary>
+            Due this week.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.DueNextWeek">
+      <summary>
+            Due next week.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.NoDueDate">
+      <summary>
+            No due date.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.TaskType.DueOnCustomDate">
+      <summary>
+            Due on a custom date.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Image">
+      <summary>
+            Represents a Image. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Image.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Image" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Image.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the element.
+            </summary>
+      <param name="visitor">The visitor value.</param>
+    </member>
+    <member name="P:Aspose.Note.Image.LastModifiedTime">
+      <summary>
+            Gets or sets when the image was last changed.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.Width">
+      <summary>
+            Gets or sets the width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.Height">
+      <summary>
+            Gets or sets the height.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.OriginalWidth">
+      <summary>
+            Gets or sets the original width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.OriginalHeight">
+      <summary>
+            Gets or sets the original height.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.HorizontalOffset">
+      <summary>
+            Gets or sets the horizontal offset.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.VerticalOffset">
+      <summary>
+            Gets or sets the vertical offset.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.FileName">
+      <summary>
+            Gets or sets the file name.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.Path">
+      <summary>
+            Gets or sets the path.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.Extension">
+      <summary>
+            Gets or sets the extension.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.Bytes">
+      <summary>
+            Gets or sets the image data store.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Image.IsSizeSetByUser">
+      <summary>
+            Gets or sets whether the value of the size of the image was explicitly updated by the user.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Margins">
+      <summary>
+            Specifies the dimensions of the margins of a node.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Margins.#ctor">
+      <summary>
+            Initializes a new instance of the Margins class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Margins.#ctor(System.Single,System.Single,System.Single,System.Single)">
+      <summary>
+            Initializes a new instance of the Margins class with the specified left, right, top, and bottom margins.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Margins.Left">
+      <summary>
+            Gets or sets the left margin width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Margins.Right">
+      <summary>
+            Gets or sets the right margin width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Margins.Top">
+      <summary>
+            Gets or sets the top margin width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Margins.Bottom">
+      <summary>
+            Gets or sets the bottom margin.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.NumberList">
+      <summary>
+            Specifies the numbers or bullets list.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.Font">
+      <summary>
+            Get or set the name of the font for the symbol.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.Format">
+      <summary>
+            Gets or sets the format of the number or bullet.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.IsBold">
+      <summary>
+            Gets or sets a value that indicates whether the text style is bold.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.IsItalic">
+      <summary>
+            Gets or sets a value that indicates whether the text style is italic.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.FontSize">
+      <summary>
+            Gets or sets the font size.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.FontColor">
+      <summary>
+            Gets or sets the font color.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.NumberList.Restart">
+      <summary>
+            Get or sets the numeric value that overrides the automatic number value of the list item.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Outline">
+      <summary>
+            Represents a Outline. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Outline.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Outline" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Outline.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Outline.IndentPosition">
+      <summary>
+            Gets ot sets the indent position.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.LastModifiedTime">
+      <summary>
+            Gets or sets the last modified time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.MaxWidth">
+      <summary>
+            Gets or sets the max width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.MinWidth">
+      <summary>
+            Gets or sets the min width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.MaxHeight">
+      <summary>
+            Gets or sets the max height.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.HorizontalOffset">
+      <summary>
+            Gets or sets the horizontal offset..
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.VerticalOffset">
+      <summary>
+            Gets or sets the vertical offset.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Outline.ReservedWidth">
+      <summary>
+            Gets or sets the reserved width.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.OutlineElement">
+      <summary>
+            Represents a OutlineElement. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.OutlineElement.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.OutlineElement" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.OutlineElement.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.OutlineElement.IndentPosition">
+      <summary>
+            Gets ot sets the indent position.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.OutlineElement.LastModifiedTime">
+      <summary>
+            Gets or sets the last modified time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.OutlineElement.CreationTime">
+      <summary>
+            Gets or sets the creation time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.OutlineElement.NumberList">
+      <summary>
+            Gets or sets the list bullet or number.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.OutlineGroup">
+      <summary>
+            Represents a OutlineGroup. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.OutlineGroup.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.OutlineGroup" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.OutlineGroup.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.OutlineGroup.IndentPosition">
+      <summary>
+            Gets ot sets the indent position.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Page">
+      <summary>
+            Represents a Page. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Page.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Page" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Page.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Page.LastModifiedTime">
+      <summary>
+            Gets or sets the last modified time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.CreationTime">
+      <summary>
+            Gets or sets the creation time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Title">
+      <summary>
+            Gets or sets the title.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Level">
+      <summary>
+            Gets or sets the level.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Margin">
+      <summary>
+            Gets or sets the margin.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Author">
+      <summary>
+            Gets or sets the author.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.SizeType">
+      <summary>
+            Gets or sets the sizeType.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Width">
+      <summary>
+            Gets or sets the width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Page.Height">
+      <summary>
+            Gets or sets the height.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.PageSeries">
+      <summary>
+            Represents a PageSeries. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.PageSeries.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.PageSeries" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.PageSeries.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.PageSeries.CreationTime">
+      <summary>
+            Gets or sets the creation time.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.RichText">
+      <summary>
+            Represents a RichText. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.RichText.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.RichText" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.RichText.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.RichText.LastModifiedTime">
+      <summary>
+            Gets or sets the last modified time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.Text">
+      <summary>
+            Gets or sets the text.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.DefaultStyle">
+      <summary>
+            Gets or sets the default style.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.Alignment">
+      <summary>
+            Gets or sets the aligment.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.SpaceBefore">
+      <summary>
+            Gets or sets the minimum amount of space before.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.SpaceAfter">
+      <summary>
+            Gets or sets the minimum amount of space after.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.LineSpacing">
+      <summary>
+            Gets or sets the line spacing.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.Styles">
+      <summary>
+            Gets ths styles.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.RichText.Tags">
+      <summary>
+            Gets ths tags.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Section">
+      <summary>
+            Represents a Section. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Section.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Section" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Section.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Section.CreationTime">
+      <summary>
+            Gets or sets the creation time.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Section.Color">
+      <summary>
+            Gets or sets the color.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Section.DisplayName">
+      <summary>
+            Gets or sets the display name.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TextStyle">
+      <summary>
+            Specifies the text style.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsBold">
+      <summary>
+            Gets a value that indicates whether the text style is bold.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsItalic">
+      <summary>
+            Gets a value that indicates whether the text style is italic.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsUnderline">
+      <summary>
+            Gets a value that indicates whether the text style is Underline.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsStrikethrough">
+      <summary>
+            Gets a value that indicates whether the text style is Strikethrough.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsSuperscript">
+      <summary>
+            Gets a value that indicates whether the text style is Superscript.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsSubscript">
+      <summary>
+            Gets a value that indicates whether the text style is Subscript.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.FontName">
+      <summary>
+            Gets or Sets the font name.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.FontSize">
+      <summary>
+            Gets or Sets the font size.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.FontColor">
+      <summary>
+            Gets or Sets the font color.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.Highlight">
+      <summary>
+            Gets or Sets the highlight color.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsMathFormatting">
+      <summary>
+            Gets a value that indicates whether the text style is MathFormatting.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsHyperlink">
+      <summary>
+            Gets a value that indicates whether the text style is Hyperlink.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.IsHidden">
+      <summary>
+            Gets a value that indicates whether the text style is Hidden.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.RunIndex">
+      <summary>
+            Gets or Sets the run index.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TextStyle.FontStyle">
+      <summary>
+            Gets the font style.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Table">
+      <summary>
+            Represents a tabel. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Table.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Table" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Table.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Table.IsBordersVisible">
+      <summary>
+            Gets or sets visible of tabel border.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Table.Columns">
+      <summary>
+            Gets the columns of tabel.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Table.Rows">
+      <summary>
+            Gets the rows of tabel.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TableCell">
+      <summary>
+            Represents a tabel cell. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.TableCell.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.TableCell" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.TableCell.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.TableCell.IndentPosition">
+      <summary>
+            Gets ot sets the indent position.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TableCell.MaxWidth">
+      <summary>
+            Gets or ets the max width.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TableColumn">
+      <summary>
+            Represents a tabel column. 
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TableColumn.Width">
+      <summary>
+            Gets or sets width.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.TableColumn.Ordinal">
+      <summary>
+            Gets or sets ordinal.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.TableRow">
+      <summary>
+            Represents a tabel row. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.TableRow.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.TableRow" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.TableRow.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="T:Aspose.Note.Title">
+      <summary>
+            Represents a Title. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Title.#ctor(Aspose.Note.Document)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Title" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Title.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="P:Aspose.Note.Title.LastModifiedTime">
+      <summary>
+            Gets or sets the last modified time.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Document">
+      <summary>
+            Represents a note document. 
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Document.#ctor">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Document" /> class.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Document.#ctor(System.String)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Document" /> class.
+            </summary>
+      <param name="filePath">The file path.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.#ctor(System.IO.Stream)">
+      <summary>
+            Initializes a new instance of the <see cref="T:Aspose.Note.Document" /> class.
+            </summary>
+      <param name="inStream">The stream.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Save(System.String)">
+      <summary>
+            Saves the note document to a file.
+            </summary>
+      <param name="fileName">The fullname for the file. If a file with the specified full name already exists, the existing file is overwritten.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Save(System.String,Aspose.Note.SaveFormat)">
+      <summary>
+            Saves the note document to a file in the specified format.
+            </summary>
+      <param name="fileName">The fullname for the file. If a file with the specified full name already exists, the existing file is overwritten.</param>
+      <param name="format">The format in which to save the document.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Save(System.IO.Stream,Aspose.Note.SaveFormat)">
+      <summary>
+            Saves the note document to a stream in the specified format.
+            </summary>
+      <param name="stream">The System.IO.Stream where the document will be saved.</param>
+      <param name="format">The format in which to save the document.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Save(System.String,Aspose.Note.Saving.SaveOptions)">
+      <summary>
+            Saves the note document to a file using the specified save options.
+            </summary>
+      <param name="fileName"> The fullname for the file. If a file with the specified full name already exists, the existing file is overwritten.</param>
+      <param name="options">Specifies the options how the document is saved in file.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Save(System.IO.Stream,Aspose.Note.Saving.SaveOptions)">
+      <summary>
+            Saves the note document to a stream using the specified save options.
+            </summary>
+      <param name="stream">The System.IO.Stream where the document will be saved.</param>
+      <param name="options">Specifies the options how the document is saved in stream.</param>
+    </member>
+    <member name="M:Aspose.Note.Document.Accept(Aspose.Note.DocumentVisitor)">
+      <summary>
+            Visits the node.
+            </summary>
+      <param name="visitor">The the object derived from DocumentVisitor.</param>
+    </member>
+    <member name="T:Aspose.Note.Saving.ImageSaveOptions">
+      <summary>
+            Allows to specify additional options when rendering document pages or shapes to images.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Saving.SaveOptions">
+      <summary>
+               This is an abstract base class for classes that allow the user to specify
+               options when saving a document into a particular format.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Saving.SaveOptions.SaveFormat">
+      <summary>
+            It specifies the format in which the document will be saved if this save options object is used.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Saving.ImageSaveOptions.#ctor(Aspose.Note.SaveFormat)">
+      <summary>
+            The class protected constructor. 
+            </summary>
+      <param name="format">The save format value.</param>
+    </member>
+    <member name="P:Aspose.Note.Saving.ImageSaveOptions.PageIndex">
+      <summary>
+            Gets or sets the index of the first page to save. By default is 0.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.Saving.PdfSaveOptions">
+      <summary>
+            Allows to specify additional options when rendering document pages or shapes to PDF.
+            </summary>
+    </member>
+    <member name="M:Aspose.Note.Saving.PdfSaveOptions.#ctor">
+      <summary>
+            The class protected constructor. 
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Saving.PdfSaveOptions.PageCount">
+      <summary>
+            Gets or sets the number of pages to save. By default is System.Int32.MaxValue
+            which means all pages of the document will be rendered.
+            </summary>
+    </member>
+    <member name="P:Aspose.Note.Saving.PdfSaveOptions.PageIndex">
+      <summary>
+            Gets or sets the index of the first page to save. By default is 0.
+            </summary>
+    </member>
+    <member name="T:Aspose.Note.SaveFormat">
+      <summary>
+            Indicates the format in which the document is saved.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Png">
+      <summary>
+            Specifies that the output file is a PNG file.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Bmp">
+      <summary>
+            Specifies that the output file is a BMP file.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Jpeg">
+      <summary>
+            Specifies that the output file is a JPEG file.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Gif">
+      <summary>
+            Specifies that the output file is a GIF file.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Tiff">
+      <summary>
+            Specifies that the output file is a TIFF file.
+            </summary>
+    </member>
+    <member name="F:Aspose.Note.SaveFormat.Pdf">
+      <summary>
+            Specifies that the output file is a PDF file.
+            </summary>
+    </member>
+  </members>
+</doc>

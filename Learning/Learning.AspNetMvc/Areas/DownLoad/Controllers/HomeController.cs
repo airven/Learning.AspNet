@@ -1,35 +1,113 @@
-﻿using System;
+﻿using Learning.Common;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Windows.Forms;
 
 namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: DownLoad/Home
         public ActionResult Index()
         {
+            string path = Server.MapPath("~/ImgWatermark");
+            string[] files = Directory.GetFiles(path);
+            ViewBag.Files = files;
             return View();
         }
-        public ActionResult DownLoad()
-        {
-            var fileconent = GetFileContent();
-            string fileName = string.Format("export{0}", DateTime.Now.ToString("yyyyMMddHHmmssff"));
-            //方法一
-            //Response.AppendHeader("Content-Disposition", "attachment;filename=" + fileName + ".xls");
-            //Response.Charset = "utf-8";
-            //Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
-            //Response.ContentType = "application/ms-excel";
-            //Response.Write(fileconent);
-            //Response.End();
-            //return null;
 
-            //方法二
-            var bytes = Encoding.GetEncoding("utf-8").GetBytes(fileconent);
-            return File(bytes, "application/ms-excel", "reflections" + DateTime.UtcNow.ToShortDateString() + ".xls");
+        public ActionResult DownLoad(string url)
+        {
+            var file = url;
+            if(string.IsNullOrEmpty(file))
+            {
+                var fileconent = GetFileContent();
+                string fileName = string.Format("export{0}", DateTime.Now.ToString("yyyyMMddHHmmssff"));
+                //方法一
+                //Response.AppendHeader("Content-Disposition", "attachment;filename=" + fileName + ".xls");
+                //Response.Charset = "utf-8";
+                //Response.ContentEncoding = System.Text.Encoding.GetEncoding("gb2312");
+                //Response.ContentType = "application/ms-excel";
+                //Response.Write(fileconent);
+                //Response.End();
+                //return null;
+
+                //方法二
+                var bytes = Encoding.GetEncoding("utf-8").GetBytes(fileconent);
+                return File(bytes, "application/ms-excel", "reflections" + DateTime.UtcNow.ToShortDateString() + ".xls");
+            }
+            else
+            {
+                Stream stream;
+                var textMark = "测试文字";
+                var fileExtension = Path.GetExtension(file).Substring(1);
+                if (fileExtension == FileFormat.jpg.ToString() || fileExtension == FileFormat.jpeg.ToString())
+                {
+                    stream = WaterMarkerDownLoad.AddImgWaterMark(file, textMark);
+                }
+                else if (fileExtension == FileFormat.doc.ToString() || fileExtension == FileFormat.docx.ToString())
+                {
+                    stream = WaterMarkerDownLoad.AddWordWaterMarkV2(file, textMark);
+                }
+                else if (fileExtension == FileFormat.pdf.ToString())
+                {
+                    stream = WaterMarkerDownLoad.AddPdfWaterMark(file, textMark);
+                }
+                else
+                {
+                    stream = new System.IO.MemoryStream(System.IO.File.ReadAllBytes(file));
+                }
+                return File(stream, "application/octet-stream", Path.GetFileName(file));
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Upload(string imgName)
+        {
+            ViewBag.ImgName = imgName;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase fileToUpload)
+        {
+            using (Image image = Image.FromStream(fileToUpload.InputStream, true, false))
+            {
+                string name = Path.GetFileNameWithoutExtension(fileToUpload.FileName);
+                var ext = Path.GetExtension(fileToUpload.FileName);
+                string myfile = name + ext;
+                var saveImagePath = Path.Combine(Server.MapPath("~/ImgWatermark"), myfile);
+                Image watermarkImage = Image.FromFile(Server.MapPath("/Img/watermarklogo.png"));
+                WaterMarkerUpload objWatermarker = new WaterMarkerUpload(image);
+                for (int i = 0; i < image.Height; i++)
+                {
+                    for (int j = 0; j < image.Width; j++)
+                    {
+                        // Set the properties for the logo
+                        objWatermarker.Position = (Common.WatermarkPosition)WatermarkPosition.Absolute;
+                        objWatermarker.PositionX = j;
+                        objWatermarker.PositionY = i;
+                        objWatermarker.Margin = new Padding(20);
+                        objWatermarker.Opacity = 0.5f;
+                        objWatermarker.TransparentColor = Color.White;
+                        objWatermarker.ScaleRatio = 3;
+                        // Draw the logo
+                        objWatermarker.DrawImage(watermarkImage);
+                        //Draw the Text
+                        //objWatermarker.DrawText("WaterMarkDemo")
+
+                        j = j + 400;// watermark image width 
+                    }
+                    i = i + 120;//
+                }
+                objWatermarker.Image.Save(saveImagePath);
+                return RedirectToAction("Upload", new { imgName = myfile });
+            }
         }
 
         private string GetFileContent()
@@ -161,5 +239,34 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
     {
         public string ProductName { get; set; }
         public string ProvinceName { get; set; }
+    }
+
+    enum FileFormat
+    {
+        pdf,
+        doc,
+        docx,
+        txt,
+        xls,
+        xlsx,
+
+        dwg,
+
+        jpg,
+        jpeg,
+        png,
+        tif,
+
+        mpg,
+        mpeg,
+        mp4,
+        mkv,
+        avi,
+        ogg,
+        webm,
+        mp3,
+
+        obj,
+        html,
     }
 }

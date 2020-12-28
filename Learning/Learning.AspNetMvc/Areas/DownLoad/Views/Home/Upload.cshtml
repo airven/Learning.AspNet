@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Upload";
+}
+<h2>Upload</h2>
+<div class="jumbotron">
+    <h1>demo project</h1>
+    <p class="lead"> add watermark text add image to photo using c#</p>
+</div>
+<div>
+    @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        <label>select image to upload</label>
+        <input type="file" name="fileToUpload" id="fileToUpload" />
+        <input type="submit" value="upload image" name="submit" />
+    }
+    @if (ViewBag.imgName != null)
+    {
+        <div>
+            <img src="~/ImgWatermark/@ViewBag.imgName" />
+        </div>
+    }
+</div>
