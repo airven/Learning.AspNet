@@ -15,7 +15,7 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
     {
         public ActionResult Index()
         {
-            string path = Server.MapPath("~/ImgWatermark");
+            string path = Server.MapPath("~/Files/ImgWatermark");
             string[] files = Directory.GetFiles(path);
             ViewBag.Files = files;
             return View();
@@ -54,7 +54,7 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
                 {
                     stream = WaterMarkerDownLoad.AddWordWaterMarkV2(file, textMark);
                 }
-                else if (fileExtension == FileFormat.pdf.ToString())
+                else if (fileExtension == FileFormat.pdf.ToString()|| fileExtension == FileFormat.pptx.ToString())
                 {
                     stream = WaterMarkerDownLoad.AddPdfWaterMark(file, textMark);
                 }
@@ -81,8 +81,8 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
                 string name = Path.GetFileNameWithoutExtension(fileToUpload.FileName);
                 var ext = Path.GetExtension(fileToUpload.FileName);
                 string myfile = name + ext;
-                var saveImagePath = Path.Combine(Server.MapPath("~/ImgWatermark"), myfile);
-                Image watermarkImage = Image.FromFile(Server.MapPath("/Img/watermarklogo.png"));
+                var saveImagePath = Path.Combine(Server.MapPath("~/Files/ImgWatermark"), myfile);
+                Image watermarkImage = Image.FromFile(Server.MapPath("~/Files/ImgWatermark/watermarklogo.png"));
                 WaterMarkerUpload objWatermarker = new WaterMarkerUpload(image);
                 for (int i = 0; i < image.Height; i++)
                 {
@@ -268,5 +268,6 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
 
         obj,
         html,
+        pptx
     }
 }
