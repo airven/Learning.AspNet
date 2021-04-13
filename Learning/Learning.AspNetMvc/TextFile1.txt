@@ -1,3 +1,0 @@
-﻿https://www.mikesdotnetting.com/article/126/asp-net-mvc-prevent-image-leeching-with-a-custom-routehandler
-https://www.codeproject.com/Tips/5163167/How-to-implement-Custom-RouteHandler-and-Custom-Ha
-https://maxivak.com/dynamic-url-rewriting-on-asp-net-mvc/

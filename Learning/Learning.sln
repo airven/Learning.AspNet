@@ -9,6 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.Common", "Learning
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.TestConsole", "Learning.TestConsole\Learning.TestConsole.csproj", "{043D541F-BAD4-457A-AECE-7276EE870F01}"
 EndProject
+		Learning.AspNetMvc\mvc-route.md = Learning.AspNetMvc\mvc-route.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
