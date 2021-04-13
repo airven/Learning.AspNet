@@ -1,0 +1,78 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Learning.TestConsole
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            People people = new People()
+            {
+                Id = 11,
+                Name = "Wang",
+                Age = 31
+            };
+            var result = Program.Trans<People, PeopleCopy>(people);
+            Console.Read();
+        }
+
+        private static Dictionary<string, object> _Dic = new Dictionary<string, object>();
+
+        /// <summary>
+        /// 字典缓存表达式树
+        /// </summary>
+        /// <typeparam name="TIn"></typeparam>
+        /// <typeparam name="TOut"></typeparam>
+        /// <param name="tIn"></param>
+        /// <returns></returns>
+        public static TOut Trans<TIn, TOut>(TIn tIn)
+        {
+            string key = string.Format("funckey_{0}_{1}", typeof(TIn).FullName, typeof(TOut).FullName);
+            if (!_Dic.ContainsKey(key))
+            {
+                ParameterExpression parameterExpression = Expression.Parameter(typeof(TIn), "p");
+                List<MemberBinding> memberBindingList = new List<MemberBinding>();
+                foreach (var item in typeof(TOut).GetProperties())
+                {
+                    MemberExpression property = Expression.Property(parameterExpression, typeof(TIn).GetProperty(item.Name));
+                    MemberBinding memberBinding = Expression.Bind(item, property);
+                    memberBindingList.Add(memberBinding);
+                }
+                foreach (var item in typeof(TOut).GetFields())
+                {
+                    MemberExpression property = Expression.Field(parameterExpression, typeof(TIn).GetField(item.Name));
+                    MemberBinding memberBinding = Expression.Bind(item, property);
+                    memberBindingList.Add(memberBinding);
+                }
+                MemberInitExpression memberInitExpression = Expression.MemberInit(Expression.New(typeof(TOut)), memberBindingList.ToArray());
+                Expression<Func<TIn, TOut>> lambda = Expression.Lambda<Func<TIn, TOut>>(memberInitExpression, new ParameterExpression[]
+                {
+                parameterExpression
+                });
+                Func<TIn, TOut> func = lambda.Compile();//拼装是一次性的
+                _Dic[key] = func;
+            }
+            return ((Func<TIn, TOut>)_Dic[key]).Invoke(tIn);
+        }
+    }
+
+
+    public class People
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+        public int Id { get; set; }
+    }
+
+    public class PeopleCopy
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+        public int Id { get; set; }
+    }
+}
