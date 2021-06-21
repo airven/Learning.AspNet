@@ -146,7 +146,9 @@
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\DownLoad\Controllers\HomeController.cs" />
     <Compile Include="Areas\DownLoad\DownLoadAreaRegistration.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -210,6 +212,7 @@
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\DownLoad\Models\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -225,16 +228,16 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Learning.Common\Learning.Common.csproj">
-      <Project>{905360b5-a2a7-4882-9fca-1f866084efea}</Project>
-      <Name>Learning.Common</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="mvc-route.md" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Learning.Common\Common.csproj">
+      <Project>{905360b5-a2a7-4882-9fca-1f866084efea}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

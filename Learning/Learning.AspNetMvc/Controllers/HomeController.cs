@@ -15,6 +15,13 @@ namespace Learning.AspNetMvc.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            var studentList = new List<student> {
+                new student{ id="a",sname="abc"},
+                 new student{ id="b",sname="abcd"},
+                  new student{ id="c",sname="abcde"},
+            };
+            if (HttpContext.Session == null || HttpContext.Session["a"] == null)
+                HttpContext.Session["a"] = studentList;
             return View();
         }
 
@@ -61,9 +68,11 @@ namespace Learning.AspNetMvc.Controllers
                         if (opp1 + adj1 < img.Height && opp2 + adj2 < img.Width)
                             break;
                     }
-                    StringFormat stringFormat = new StringFormat();
-                    stringFormat.Alignment = StringAlignment.Center;
-                    stringFormat.LineAlignment = StringAlignment.Center;
+                    StringFormat stringFormat = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    };
 
                     gr.SmoothingMode = SmoothingMode.AntiAlias;
                     gr.RotateTransform((float)angle);

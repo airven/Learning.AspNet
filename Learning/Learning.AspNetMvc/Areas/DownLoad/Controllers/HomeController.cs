@@ -1,4 +1,5 @@
-﻿using Learning.Common;
+﻿using Common;
+using Common.WaterMarker;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -89,7 +90,7 @@ namespace Learning.AspNetMvc.Areas.DownLoad.Controllers
                     for (int j = 0; j < image.Width; j++)
                     {
                         // Set the properties for the logo
-                        objWatermarker.Position = (Common.WatermarkPosition)WatermarkPosition.Absolute;
+                        objWatermarker.Position = (Common.WaterMarker.WatermarkPosition)WatermarkPosition.Absolute;
                         objWatermarker.PositionX = j;
                         objWatermarker.PositionY = i;
                         objWatermarker.Margin = new Padding(20);

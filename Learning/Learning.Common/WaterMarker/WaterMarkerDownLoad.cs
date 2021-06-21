@@ -9,7 +9,7 @@ using Aspose.Words.Drawing;
 using iTextSharp.text.pdf;
 using System.Drawing.Drawing2D;
 
-namespace Learning.Common
+namespace Common.WaterMarker
 {
     public static class ImgExtension
     {
