@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
 
-namespace Common.WaterMarker
+namespace Learning.Common.WaterMarker
 {
 
     #region WatermarkPosition

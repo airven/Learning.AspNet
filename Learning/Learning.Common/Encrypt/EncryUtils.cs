@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace Common.Encrypt
+namespace Learning.Common.Encrypt
 {
     /// <summary>
     /// 加解密帮助类(3DES加密方法:CBC模式、ECB模式、)
@@ -22,9 +22,11 @@ namespace Common.Encrypt
         /// <returns></returns>
         public static string TripleDesEncryptorCBC(string text, string key, string iv)
         {
-            var tripleDESCipher = new TripleDESCryptoServiceProvider();
-            tripleDESCipher.Mode = CipherMode.CBC;
-            tripleDESCipher.Padding = PaddingMode.PKCS7;
+            TripleDESCryptoServiceProvider tripleDESCipher = new TripleDESCryptoServiceProvider
+            {
+                Mode = CipherMode.CBC,
+                Padding = PaddingMode.PKCS7
+            };
             byte[] pwdBytes = System.Text.Encoding.UTF8.GetBytes(key);
             byte[] keyBytes = new byte[24];
             int len = pwdBytes.Length;
@@ -49,9 +51,11 @@ namespace Common.Encrypt
         /// <returns></returns>
         public static string TripleDesDecryptorCBC(string text, string key, string iv)
         {
-            var tripleDESCipher = new TripleDESCryptoServiceProvider();
-            tripleDESCipher.Mode = CipherMode.CBC;
-            tripleDESCipher.Padding = PaddingMode.PKCS7;
+            TripleDESCryptoServiceProvider tripleDESCipher = new TripleDESCryptoServiceProvider
+            {
+                Mode = CipherMode.CBC,
+                Padding = PaddingMode.PKCS7
+            };
 
             byte[] encryptedData = Convert.FromBase64String(text);
             byte[] pwdBytes = System.Text.Encoding.UTF8.GetBytes(key);
@@ -84,9 +88,11 @@ namespace Common.Encrypt
                 if (!string.IsNullOrEmpty(text))
                 {
                     Encoding encoding = Encoding.GetEncoding("UTF-8");
-                    var DES = new TripleDESCryptoServiceProvider();
-                    DES.Key = encoding.GetBytes(key);
-                    DES.Mode = CipherMode.ECB;
+                    TripleDESCryptoServiceProvider DES = new TripleDESCryptoServiceProvider
+                    {
+                        Key = encoding.GetBytes(key),
+                        Mode = CipherMode.ECB
+                    };
                     ICryptoTransform DESEncrypt = DES.CreateEncryptor();
                     byte[] Buffer = encoding.GetBytes(text);
                     return Convert.ToBase64String(DESEncrypt.TransformFinalBlock(Buffer, 0, Buffer.Length));
@@ -111,10 +117,12 @@ namespace Common.Encrypt
             {
                 if (!string.IsNullOrEmpty(text))
                 {
-                    var DES = new TripleDESCryptoServiceProvider();
-                    DES.Key = ASCIIEncoding.ASCII.GetBytes(key);
-                    DES.Mode = CipherMode.ECB;
-                    DES.Padding = System.Security.Cryptography.PaddingMode.PKCS7;
+                    var DES = new TripleDESCryptoServiceProvider
+                    {
+                        Key = ASCIIEncoding.ASCII.GetBytes(key),
+                        Mode = CipherMode.ECB,
+                        Padding = System.Security.Cryptography.PaddingMode.PKCS7
+                    };
                     ICryptoTransform DESDecrypt = DES.CreateDecryptor();
                     byte[] Buffer = Convert.FromBase64String(text);
                     return Encoding.UTF8.GetString(DESDecrypt.TransformFinalBlock(Buffer, 0, Buffer.Length));
@@ -141,9 +149,11 @@ namespace Common.Encrypt
             MemoryStream memory;
             CryptoStream crypto;
             byte[] byt;
-            symmetric = new TripleDESCryptoServiceProvider();
-            symmetric.Key = Encoding.UTF8.GetBytes(key);
-            symmetric.IV = Encoding.UTF8.GetBytes(iv);
+            symmetric = new TripleDESCryptoServiceProvider
+            {
+                Key = Encoding.UTF8.GetBytes(key),
+                IV = Encoding.UTF8.GetBytes(iv)
+            };
             iCrypto = symmetric.CreateEncryptor();
             byt = Encoding.UTF8.GetBytes(paymentCode);
             memory = new MemoryStream();
@@ -163,10 +173,11 @@ namespace Common.Encrypt
         /// <returns></returns>
         public static string DESDecrypst(string data, string key, string iv)
         {
-            SymmetricAlgorithm mCSP = new TripleDESCryptoServiceProvider();
-
-            mCSP.Key = Encoding.UTF8.GetBytes(key);
-            mCSP.IV = Encoding.UTF8.GetBytes(iv);
+            SymmetricAlgorithm mCSP = new TripleDESCryptoServiceProvider
+            {
+                Key = Encoding.UTF8.GetBytes(key),
+                IV = Encoding.UTF8.GetBytes(iv)
+            };
             ICryptoTransform iCrypto;
             MemoryStream memory;
             CryptoStream crypto;

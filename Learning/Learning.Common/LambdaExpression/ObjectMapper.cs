@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace Common.LambdaExpression
+namespace Learning.Common.LambdaExpression
 {
     public class ObjectMapper
     {
-        private static Dictionary<string, object> _Dic = new Dictionary<string, object>();
+        private static readonly Dictionary<string, object> _Dic = new Dictionary<string, object>();
 
         /// <summary>
         /// 字典缓存表达式树
