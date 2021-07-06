@@ -1,0 +1,40 @@
+﻿@model List<AspNetIdentityDemo.Models.Customer>
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h1>This is a secured page !</h1>
+    <h2>Welcome @ViewBag.FullName !</h2>
+    <br />
+    @Html.ActionLink("Change Password","ChangePassword","Account")
+    <br /><br />
+    @Html.ActionLink("Modify Profile", "ChangeProfile", "Account")
+    <br /><br />
+    <form action="/account/logout" method="post">
+        @Html.AntiForgeryToken()
+        <input type="submit" value="Logout" />
+    </form>
+    <br />
+    <table border="1" cellpadding="6">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.CompanyName</td>
+                <td>@item.Country</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

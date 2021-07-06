@@ -1,5 +1,4 @@
-﻿using Common;
-using Common.WaterMarker;
+﻿using Learning.Common.WaterMarker;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

@@ -1,0 +1,40 @@
+﻿@model AspNetIdentityDemo.Models.ChangeProfile
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Modify Profile</title>
+</head>
+<body>
+    <h1>Register</h1>
+    @using (Html.BeginForm("ChangeProfile", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken();
+        <table>
+            <tr>
+                <td>@Html.LabelFor(m => m.FullName)</td>
+                <td>@Html.TextBoxFor(m => m.FullName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.BirthDate)</td>
+                <td>@Html.TextBoxFor(m => m.BirthDate)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Bio)</td>
+                <td>@Html.TextAreaFor(m => m.Bio)</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Change" /></td>
+            </tr>
+        </table>
+    }
+    @ViewBag.Message
+    @Html.ValidationSummary()
+</body>
+</html>
