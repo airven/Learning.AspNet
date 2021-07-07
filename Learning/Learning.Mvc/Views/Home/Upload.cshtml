@@ -1,0 +1,96 @@
+﻿@model IEnumerable<UploadingFileMvc.Models.TblCompanyUser>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<form>
+    <fieldset>
+        <legend>Registration form with image upload in MVC using jquery Ajax</legend>
+        <div class="form-group">
+            <label for="txtName">Name</label>
+            <input type="text" class="form-control" id="txtName" placeholder="Name" />
+        </div>
+        <div class="form-group">
+            <label for="txtEmail">Email</label>
+            <input type="email" class="form-control" id="txtEmail" placeholder="Email" />
+        </div>
+        <div class="form-group">
+            <label for="txtpassword">Password</label>
+            <input type="password" class="form-control" id="txtpassword" placeholder="Password" />
+        </div>
+        <div class="form-group">
+            <label for="fileupload">Profile Picture</label>
+            <input type="file" class="form-control" id="fileupload" />
+        </div>
+        <div class="form-group">
+            <input type="button" id="btnregistered" value="Register" />
+        </div>
+    </fieldset>
+</form>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#btnregistered').click(function () {
+            if (window.FormData !== undefined) {
+
+                var res = ValidateForm();
+                if (res == false) {
+                    return false;
+                }
+                var fileUpload = $("#fileupload").get(0);
+                var files = fileUpload.files;
+                var fileData = new FormData();
+                fileData.append('FullName', $("#txtName").val());
+                fileData.append('Email', $("#txtEmail").val());
+                fileData.append('Password', $("#txtpassword").val());
+                for (var i = 0; i < files.length; i++) {
+                    fileData.append(files[i].name, files[i]);
+                }
+                $.ajax({
+                    url: '/Account/UserRegistration',
+                    type: "POST",
+                    contentType: false,
+                    processData: false,
+                    data: fileData,
+                    success: function (result) {
+                        alert(result);
+                        window.location.reload();
+                    },
+                    error: function (err) {
+                        alert(err.statusText);
+                    }
+                });
+            } else {
+                alert("Your browser doesn support FormData");
+            }
+        });
+
+        function ValidateForm() {
+            var isValid = true;
+            if ($('#txtName').val().trim() == "") {
+                $('#txtName').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#txtName').css('border-color', 'lightgrey');
+            }
+            if ($('#txtpassword').val().trim() == "") {
+                $('#txtpassword').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#txtpassword').css('border-color', 'lightgrey');
+            }
+            if ($('#txtEmail').val().trim() == "") {
+                $('#txtEmail').css('border-color', 'Red');
+                isValid = false;
+            }
+            else {
+                $('#txtEmail').css('border-color', 'lightgrey');
+            }
+            return isValid;
+        }
+    });
+</script>

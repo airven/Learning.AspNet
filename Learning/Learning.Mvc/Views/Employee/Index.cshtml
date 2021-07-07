@@ -1,0 +1,250 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Record</h2>
+@* Table for showing the list of teachers from the database *@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="OpenAddPopup();">Add New Employee</button>
+<br />
+<br />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                EmployeeID
+            </th>
+            <th>
+                FirstName
+            </th>
+            <th>
+                LastName
+            </th>
+            <th>
+                Address
+            </th>
+
+            <th>
+                City
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Region
+            </th>
+        </tr>
+    </thead>
+    <tbody class="tbody"></tbody>
+</table>
+<div id="divcontent">
+
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        BindteacherData();
+    });
+
+    function BindteacherData() {
+        $.ajax({
+            url: "/Employee/GetAllEmployees",
+            type: "GET",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result) {
+                    //itetrate thorugh each record and bind it to td
+                    var html = '';
+                    $.each(result, function (key, item) {
+                        html += '<tr>';
+                        html += '<td>' + item.EmployeeID + '</td>';
+                        html += '<td>' + item.FirstName + '</td>';
+                        html += '<td>' + item.LastName + '</td>';
+                        html += '<td>' + item.Address + '</td>';
+                        html += '<td>' + item.City + '</td>';
+                        html += '<td>' + item.Region + '</td>';
+                        html += '<td><a href="#" onclick="return OpenUpdatePopup(' + item.EmployeeID + ')">Edit</a> | <a href="#" onclick="DeleleEmployee(' + item.EmployeeID + ')">Delete</a></td>';
+                        html += '</tr>';
+                    });
+                    $('.tbody').html(html);
+                }
+
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    function OpenAddPopup() {
+        $.ajax({
+            url: '/Employee/LoadaddEmployeesPopup',
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#divcontent').empty();
+                $('#divcontent').html(result);
+                $('#AddUpdateModelPopup').modal('show');
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        })
+    }
+
+    function OpenUpdatePopup(Id) {
+        $.ajax({
+            url: '/Employee/LoadEditEmployeesPopup?EmployeesId=' + Id,
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#divcontent').empty();
+                $('#divcontent').html(result);
+                $('#AddUpdateModelPopup').modal('show');
+                //$('#btndivuserguidemodel').trigger('click');
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        })
+    }
+
+    //Add Data Function
+    function AddEmployee() {
+        var res = ValidateForm();
+        if (res == false) {
+            return false;
+        }
+        var employee = {
+            EmployeeID: $('#EmployeeID').val(),
+            FirstName: $('#FirstName').val(),
+            LastName: $('#LastName').val(),
+            Address: $('#Address').val(),
+            City: $('#City').val(),
+            Country: $('#Country').val(),
+            Title: $('#Title').val(),
+            Notes: $('#Notes').val()
+        };
+        $.ajax({
+            url: "/Employee/AddEmployees",
+            data: JSON.stringify(employee),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                //populate table with new record
+                BindteacherData();
+                $('#AddUpdateModelPopup').modal('hide');
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    //function for updating Patient record
+    function UpdateEmployee() {
+        var res = ValidateForm();
+        if (res == false) {
+            return false;
+        }
+        var employee = {
+            EmployeeID: $('#EmployeeID').val(),
+            FirstName: $('#FirstName').val(),
+            LastName: $('#LastName').val(),
+            Address: $('#Address').val(),
+            City: $('#City').val(),
+            Country: $('#Country').val(),
+            Title: $('#Title').val(),
+            Notes: $('#Notes').val()
+        };
+        if (!employee.EmployeeID || employee.EmployeeID <= 0) {
+            alert("Invalid Id!");
+            return false;
+        }
+        $.ajax({
+            url: "/Employee/UpdateEmployees",
+            data: JSON.stringify(employee),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                BindteacherData();
+                $('#AddUpdateModelPopup').modal('hide');
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+    //function for deleting Teacher's record
+    function DeleleEmployee(ID) {
+        var ans = confirm("Are you sure you want to delete?");
+        if (ans) {
+            $.ajax({
+                url: "/Employee/DeleteEmployees?EmployeesId=" + ID,
+                type: "POST",
+                contentType: "application/json;charset=UTF-8",
+                dataType: "json",
+                success: function (result) {
+                    BindteacherData();
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+    }
+
+    function ValidateForm() {
+        var isValid = true;
+        if ($('#FirstName').val().trim() == "") {
+            $('#FirstName').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#FirstName').css('border-color', 'lightgrey');
+        }
+        if ($('#LastName').val().trim() == "") {
+            $('#LastName').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#LastName').css('border-color', 'lightgrey');
+        }
+        if ($('#Address').val().trim() == "") {
+            $('#Address').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#Address').css('border-color', 'lightgrey');
+        }
+
+        if ($('#Country').val().trim() == "") {
+            $('#Country').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#Country').css('border-color', 'lightgrey');
+        }
+        if ($('#City').val().trim() == "") {
+            $('#City').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#City').css('border-color', 'lightgrey');
+        }
+        if ($('#Title').val().trim() == "") {
+            $('#Title').css('border-color', 'Red');
+            isValid = false;
+        }
+        else {
+            $('#Title').css('border-color', 'lightgrey');
+        }
+        return isValid;
+    }
+</script>
