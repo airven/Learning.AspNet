@@ -25,7 +25,8 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("List", "Index", "Employee", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Upload", "Index", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Upload", "Upload", "Home", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("DownLoad", "Index", "Home", new { area = "DownLoad" }, null)</li>
                     <li>
                         @if (Request.IsAuthenticated)
                         {

@@ -134,6 +134,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\DownLoad\Controllers\HomeController.cs" />
+    <Compile Include="Areas\DownLoad\DownLoadAreaRegistration.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
@@ -166,9 +168,12 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Filters\ApiErrorHandleAttribute.cs" />
+    <Compile Include="Filters\ApiResultAttribute .cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ApiResultModel.cs" />
     <Compile Include="Models\AspNetRole.cs">
       <DependentUpon>LoginRegistrationModel.tt</DependentUpon>
     </Compile>
@@ -283,6 +288,10 @@
     <Content Include="Models\LoginRegistrationModel.edmx.diagram">
       <DependentUpon>LoginRegistrationModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\DownLoad\Views\web.config" />
+    <Content Include="Areas\DownLoad\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\DownLoad\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\DownLoad\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -313,6 +322,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\DownLoad\Data\" />
+    <Folder Include="Images\" />
+    <Folder Include="Views\DownLoad\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

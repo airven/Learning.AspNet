@@ -37,14 +37,14 @@ namespace Learning.Mvc.Controllers
                 using (var databaseContext = new NorthwindEntities())
                 {
                     //If the model state is valid i.e. the form values passed the validation then we are storing the User's details in DB.
-                    RegisterUser reglog = new RegisterUser();
-
-                    //Save all details in RegitserUser object
-
-                    reglog.FirstName = registerDetails.FirstName;
-                    reglog.LastName = registerDetails.LastName;
-                    reglog.Email = registerDetails.Email;
-                    reglog.Password = registerDetails.Password;
+                    RegisterUser reglog = new RegisterUser
+                    {
+                        //Save all details in RegitserUser object
+                        FirstName = registerDetails.FirstName,
+                        LastName = registerDetails.LastName,
+                        Email = registerDetails.Email,
+                        Password = registerDetails.Password
+                    };
 
 
                     //Calling the SaveDetails method which saves the details.

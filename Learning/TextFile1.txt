@@ -1,10 +1,5 @@
 https://www.cnblogs.com/r01cn/p/5179506.html
-
 https://www.dotnetcurry.com/aspnet-mvc/1102/aspnet-mvc-role-based-security
-
 https://qawithexperts.com/article/asp-net/how-to-create-login-registration-page-in-mvc-with-database-a/170
-
-
 https://www.appsloveworld.com/insert-update-delete-using-jquery-ajax-and-modal-popup-in-mvc/
-
 https://www.appsloveworld.com/crud-operation-using-partial-view-in-mvc-with-modal-popup/
