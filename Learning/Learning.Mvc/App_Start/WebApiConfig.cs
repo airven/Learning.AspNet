@@ -24,8 +24,14 @@ namespace Learning.Mvc
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            //config.Routes.MapHttpRoute(
+            //    name: "DefaultApiV2",
+            //    routeTemplate: "api/{controller}/{action}/{id}",
+            //    defaults: new { id = RouteParameter.Optional }
+            //);
+
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
-            config.Formatters.JsonFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.QueryStringMapping("t", "json", "application/json"));    
+            config.Formatters.JsonFormatter.MediaTypeMappings.Add(new System.Net.Http.Formatting.QueryStringMapping("t", "json", "application/json"));
             config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter
             {
                 DateTimeFormat = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
