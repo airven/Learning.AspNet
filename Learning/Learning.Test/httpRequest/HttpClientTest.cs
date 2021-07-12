@@ -1,15 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
-namespace Learning.Test
+namespace Learning.Test.httpRequest
 {
     public class HttpClientTest : ITask
     {
@@ -21,7 +23,7 @@ namespace Learning.Test
 
         public void Print()
         {
-            Console.WriteLine(PostV4());
+            Console.WriteLine(PostV1());
             Console.WriteLine("Hello World!");
         }
 
@@ -76,7 +78,7 @@ namespace Learning.Test
                     httpClient.DefaultRequestHeaders.Accept.Clear();
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     httpClient.Timeout = new TimeSpan(0, 1, 0);
-                    using (response = await httpClient.PostAsync("api/PostV3", new FormUrlEncodedContent(parameters)))
+                    using (response = await httpClient.PostAsync("api/PostV2", new FormUrlEncodedContent(parameters)))
                     {
                         response.EnsureSuccessStatusCode();
                         string responseBody = await response.Content.ReadAsStringAsync();
@@ -251,7 +253,7 @@ namespace Learning.Test
             return await Task.FromResult(resp);
         }
 
-        private async Task<T> GetRequest<T>(string uri) where T:class
+        public async Task<T> GetRequest<T>(string uri) where T : class
         {
             try
             {
@@ -264,7 +266,6 @@ namespace Learning.Test
                     {
                         response.EnsureSuccessStatusCode();
                         string responseBody = await response.Content.ReadAsStringAsync();
-
                         return JsonConvert.DeserializeObject<T>(responseBody);
                     }
                 }
@@ -276,7 +277,7 @@ namespace Learning.Test
             }
         }
 
-        private async Task<TOut> PostRequest<TIn, TOut>(string uri, TIn content)
+        public async Task<TOut> PostRequest<TIn, TOut>(string uri, TIn content)
         {
             try
             {
@@ -291,7 +292,6 @@ namespace Learning.Test
                     {
                         response.EnsureSuccessStatusCode();
                         string responseBody = await response.Content.ReadAsStringAsync();
-
                         return JsonConvert.DeserializeObject<TOut>(responseBody);
                     }
                 }
@@ -299,9 +299,94 @@ namespace Learning.Test
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
-                return default(T);
+                return default(TOut);
             }
         }
+
+        //Efficient post calls with HttpClient and JSON.NET
+        public async Task PostStreamAsync(Uri url, object content, CancellationToken cancellationToken)
+        {
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage(HttpMethod.Post, url))
+            using (var httpContent = CreateHttpContent(content))
+            {
+                request.Content = httpContent;
+                using (var response = await client
+                    .SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken)
+                    .ConfigureAwait(false))
+                {
+                    response.EnsureSuccessStatusCode();
+                }
+            }
+        }
+
+        //Efficient get calls with HttpClient and JSON.NET
+        public async Task<List<T>> DeserializeOptimizedFromStreamCallAsync<T>(Uri Url, CancellationToken cancellationToken) where T : class
+        {
+            using (var client = new HttpClient())
+            using (var request = new HttpRequestMessage(HttpMethod.Get, Url))
+            using (var response = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, cancellationToken))
+            {
+                var stream = await response.Content.ReadAsStreamAsync();
+                if (response.IsSuccessStatusCode)
+                    return DeserializeJsonFromStream<List<T>>(stream);
+
+                var content = await StreamToStringAsync(stream);
+                throw new ApiException
+                {
+                    StatusCode = (int)response.StatusCode,
+                    Content = content
+                };
+            }
+        }
+
+        private static HttpContent CreateHttpContent(object content)
+        {
+            HttpContent httpContent = null;
+
+            if (content != null)
+            {
+                var ms = new MemoryStream();
+                SerializeJsonIntoStream(content, ms);
+                ms.Seek(0, SeekOrigin.Begin);
+                httpContent = new StreamContent(ms);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            }
+
+            return httpContent;
+        }
+        private async Task<string> StreamToStringAsync(Stream stream)
+        {
+            string content = null;
+            if (stream != null)
+                using (var sr = new StreamReader(stream))
+                    content = await sr.ReadToEndAsync();
+            return content;
+        }
+        private T DeserializeJsonFromStream<T>(Stream stream)
+        {
+            if (stream == null || stream.CanRead == false)
+                return default(T);
+
+            using (var sr = new StreamReader(stream))
+            using (var jtr = new JsonTextReader(sr))
+            {
+                var js = new JsonSerializer();
+                var searchResult = js.Deserialize<T>(jtr);
+                return searchResult;
+            }
+        }
+        public static void SerializeJsonIntoStream(object value, Stream stream)
+        {
+            using (var sw = new StreamWriter(stream, new UTF8Encoding(false), 1024, true))
+            using (var jtw = new JsonTextWriter(sw) { Formatting = Formatting.None })
+            {
+                var js = new JsonSerializer();
+                js.Serialize(jtw, value);
+                jtw.Flush();
+            }
+        }
+
 
     }
 }

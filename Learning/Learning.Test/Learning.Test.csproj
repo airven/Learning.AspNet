@@ -49,12 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HttpClientTest.cs" />
+    <Compile Include="httpRequest\ApiException.cs" />
+    <Compile Include="httpRequest\HttpClientTest.cs" />
     <Compile Include="ITask.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.Common.Encrypt.cs" />
     <Compile Include="Test.Common.LambdaExpression.cs" />
+    <Compile Include="webRequest\WebRequestTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

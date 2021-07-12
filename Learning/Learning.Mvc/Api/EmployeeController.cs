@@ -47,10 +47,22 @@ namespace Learning.Mvc.Api
 
         [HttpPost]
         [Route("PostV2")]
-        public void PostV2(Employee employee)
+        public HttpResponseMessage PostV2(Employee employee)
         {
-            db.Employees.Add(employee);
-            db.SaveChanges();
+            try
+            {
+                db.Employees.Add(employee);
+                db.SaveChanges();
+                var message = Request.CreateResponse(HttpStatusCode.Created, employee);
+                message.Headers.Location = new Uri(Request.RequestUri +
+                    employee.EmployeeID.ToString());
+                return message;
+            }
+            catch(Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+           
         }
 
         [HttpPost]
